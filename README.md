@@ -81,7 +81,13 @@ print graph.relationships
 
 The region graph has one object: `horse` and one attribute `brown` to describe the `horse`. It has no relationships.
 
-
+#### Get scene Graph : in the Gradient machine
+import visual_genome.local as vg
+VG_DATA = '/storage/vg_data'
+def get_sc_graph(id):
+    return vg.get_scene_graph(id, images=VG_DATA,
+                    image_data_dir=VG_DATA+'/by-id/',
+                    synset_file=VG_DATA+'/synsets.json')
 #### Get Scene Graph for an image
 Now, let's get the entire scene graph of an image. Each scene graph has three components: objects, attributes and relationships. Objects are localized in the image with bounding boxes. Attributes modify the object while Relationships are interactions between pairs of objects. We will get the scene graph of an image and print out the objects, attributes and relationships.
 
